@@ -1,0 +1,11 @@
+La presentation:
+1. 1-introduction nosql et big data:
+le terme big data siginie la grande base de donnee utilise dans nos jour
+no sql (not only sql) utilise pour analiser les grand base de donne,
+le big data necessite la presence de nosql,Il propose des solutions qui peuvent venir compléter les solutions des SGBDR classiques.
+Le NoSQL propose plusieurs formes de stockage de l’information :
+– Clé/valeur. à la manière des tableaux associatifs des langages de programmation. A une clé correspond une valeur.
+– Orienté colonne : à une clé correspond un ensemble de colonne, chacune ayant une valeur.
+Ex: cassandra.
+– Orienté document : à une clé correspond des ensembles champs/valeurs qui peuvent être hiérarchisés
+– Orienté graphe : les données sont modélisées sous forme de noeuds qui ont des liaisons entre eux.
