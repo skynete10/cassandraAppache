@@ -4,8 +4,20 @@ le terme big data siginie la grande base de donnee utilise dans nos jour
 no sql (not only sql) utilise pour analiser les grand base de donne,
 le big data necessite la presence de nosql,Il propose des solutions qui peuvent venir compléter les solutions des SGBDR classiques.
 Le NoSQL propose plusieurs formes de stockage de l’information :
-– Clé/valeur. à la manière des tableaux associatifs des langages de programmation. A une clé correspond une valeur.
-– Orienté colonne : à une clé correspond un ensemble de colonne, chacune ayant une valeur.
-Ex: cassandra.
-– Orienté document : à une clé correspond des ensembles champs/valeurs qui peuvent être hiérarchisés
-– Orienté graphe : les données sont modélisées sous forme de noeuds qui ont des liaisons entre eux.
+
+1)-l'évolutivité horizontale est la capacité d'augmenter la capacité en connectant plusieurs entités matérielles ou logicielles afin qu'ils fonctionnent comme une seule unité logique.
+évolutivité verticale, d'autre part, augmente la capacité en ajoutant plus de ressources, telles que la mémoire ou d'un CPU supplémentaire, à une machine.
+2)-En 2015 selon db-engines.com9, Cassandra occupe la 8e place dans le classement des systèmes de gestion de bases de données les plus populaires tout types confondus, et la deuxième place pour les systèmes de gestion de bases de données NoSQL (derrière MongoDB).
+ Orienté-document
+Dans cette base, un élément est un ’document’ (sous forme de JSON habituellement) identifié par une clé unique. Un document peut avoir plusieurs champs JSON récursive comme valeurs. On peut même avoir des references(liens) entre les différents champs pour avoir un JOIN limité. 
+Architecture cassandra:
+Dans un cluster, tous les nœuds sont égaux, ce qui signifie qu'il n'y a pas de nœud maître ou un processus centralisant leur gestion.
+Un cluster :plusieurs ordinateurs indépendants appelés nœuds  sur un réseau
+Le protocole Gossip est un protocole de communication de type « peer-to-peer » dans lequel les nœuds échangent périodiquement des informations sur leur état mais également sur ce qu'ils savent des autres nœuds.
+Cependant, afin d'éviter un partitionnement, tous les nœuds du cluster doivent disposer de la même liste de nœuds dans leur fichier de configuration.
+La détection des échecs est une méthode pour déterminer localement si un autre nœud est accessible ou pas. 
+heartbeat protocol (protocole heartbeat)
+
+Echange continu de messages destiné à s'assurer que les nœuds d'un RDS détecteront n'importe quelle panne réseau ou un blocage de nœud. Le protocole permet aux nœuds de réétablir une connexion ultérieurement.
+Opérations d'écriture
+> Toute activité d'écriture de noeuds est capturé par commit logs écrites dans les noeuds. Plus tard, les données seront capturées et stockées dans la mem-table. Chaque fois que le mem-table est pleine, les données seront écrites dans le fichier de données SStable. Toutes les écritures sont automatiquement partitionnées et répliquées dans le cluster. Cassandra consolide périodiquement le SSTable, en rejetant les données inutiles.
