@@ -1,3 +1,7 @@
+nom du etudiant :mohamad eldakdouki
+id cnam: 7901f
+
+
 #Plan du projet:
 1)	Introduction au nosql et bigdata.
 2)	Petite histoire sur Cassandra.
